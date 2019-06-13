@@ -1,17 +1,13 @@
 package com.git.gitcomponents;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.sf.json.JSONObject;
+import okhttp3.*;
 @RestController
 public class NetClientGet {
 
@@ -21,7 +17,7 @@ public void getComponents() {
 
   try {
 
-	URL url = new URL("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9");
+	/*URL url = new URL("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9");
 	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	conn.setRequestMethod("GET");
 	conn.setRequestProperty("Accept", "application/json");
@@ -31,22 +27,31 @@ public void getComponents() {
 				+ conn.getResponseCode());
 	}
 
-/*BufferedReader br = new BufferedReader(new InputStreamReader(
+BufferedReader br = new BufferedReader(new InputStreamReader(
 	(conn.getInputStream())));
 
 String output;
 System.out.println("Output from Server .... \n");
 while ((output = br.readLine()) != null) {
 	System.out.println(output);
-}*/
-	System.out.println("output :"+conn.getContent());
-		conn.disconnect();
+}	
+		conn.disconnect();*/
+	  
+	  OkHttpClient httpClient = new OkHttpClient();
+	  HttpUrl ghURL = HttpUrl.parse("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9").newBuilder()
+              .addPathSegment("")
+              .build();
 
-	  } catch (MalformedURLException e) {
+	  Request request = new Request.Builder()
+      		.header("Accept", "application/json")
+              .url(ghURL)
+              .get()
+              .build();
+	  
+	  Response response = httpClient.newCall(request).execute();
+	  System.out.println("output :"+response.body());
 
-		e.printStackTrace();
-
-	  } catch (IOException e) {
+	  } catch (Exception e) {
 
 		e.printStackTrace();
 
