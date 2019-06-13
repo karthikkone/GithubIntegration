@@ -16,36 +16,39 @@ import net.sf.json.JSONObject;
 public class NetClientGet {
 
 	// http://localhost:8080/RESTfulExample/json/product/get
-	@RequestMapping(value="/getComponents", method=RequestMethod.GET)
-	public JSONObject getComponents() {
+@RequestMapping(value="/getComponents", method=RequestMethod.GET)
+public void getComponents() {
 
-	  try {
+  try {
 
-		URL url = new URL("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9");
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Accept", "application/json");
+	URL url = new URL("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestMethod("GET");
+	conn.setRequestProperty("Accept", "application/json");
 
-		if (conn.getResponseCode() != 200) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ conn.getResponseCode());
-		}
+	if (conn.getResponseCode() != 200) {
+		throw new RuntimeException("Failed : HTTP error code : "
+				+ conn.getResponseCode());
+	}
 
-		JSONObject json = new JSONObject();
-		json.put("output",conn.getInputStream().toString());
+/*BufferedReader br = new BufferedReader(new InputStreamReader(
+	(conn.getInputStream())));
 
+String output;
+System.out.println("Output from Server .... \n");
+while ((output = br.readLine()) != null) {
+	System.out.println(output);
+}*/
+	System.out.println("output :"+conn.getContent());
 		conn.disconnect();
-		return json;
 
 	  } catch (MalformedURLException e) {
 
 		e.printStackTrace();
-		return null;
 
 	  } catch (IOException e) {
 
 		e.printStackTrace();
-		return null;
 
 	  }
 
