@@ -10,12 +10,14 @@ import java.net.URL;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import net.sf.json.JSONObject;
 @RestController
 public class NetClientGet {
 
 	// http://localhost:8080/RESTfulExample/json/product/get
 	@RequestMapping(value="/getComponents", method=RequestMethod.GET)
-	public void getComponents() {
+	public JSONObject getComponents() {
 
 	  try {
 
@@ -29,24 +31,21 @@ public class NetClientGet {
 					+ conn.getResponseCode());
 		}
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(
-			(conn.getInputStream())));
-
-		String output;
-		System.out.println("Output from Server .... \n");
-		while ((output = br.readLine()) != null) {
-			System.out.println(output);
-		}
+		JSONObject json = new JSONObject();
+		json.put("output",conn.getInputStream());
 
 		conn.disconnect();
+		return json;
 
 	  } catch (MalformedURLException e) {
 
 		e.printStackTrace();
+		return null;
 
 	  } catch (IOException e) {
 
 		e.printStackTrace();
+		return null;
 
 	  }
 
