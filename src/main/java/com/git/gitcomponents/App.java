@@ -1,6 +1,9 @@
 package com.git.gitcomponents;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.jenkinsjobs.Jobs.JobsApplication;
 
 /**
  * Hello world!
@@ -11,6 +14,7 @@ public class App
 {
     public static void main( String[] args )
     {
+    	SpringApplication.run(JobsApplication.class, args);
         System.out.println( "Hello World!" );
     }
 }
