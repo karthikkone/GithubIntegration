@@ -38,13 +38,13 @@ while ((output = br.readLine()) != null) {
 		conn.disconnect();*/
 	  
 	  OkHttpClient httpClient = new OkHttpClient();
-	  HttpUrl ghURL = HttpUrl.parse("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9").newBuilder()
+	  /*HttpUrl ghURL = HttpUrl.parse("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9").newBuilder()
               .addPathSegment("")
-              .build();
+              .build();*/
 
 	  Request request = new Request.Builder()
       		.header("Accept", "application/json")
-              .url(ghURL)
+              .url("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9")
               .get()
               .build();
 	  
