@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.git.model.RepoData;
+
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import okhttp3.*;
 @RestController
 public class NetClientGet {
@@ -49,8 +55,14 @@ while ((output = br.readLine()) != null) {
               .build();
 	  
 	  Response response = httpClient.newCall(request).execute();
+	  if(response.code() == 200)
+	  {
 	  String resp = response.body().string();
 	  System.out.println("output :"+resp);
+	  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+      
+      RepoData repoData = gson.fromJson(resp, RepoData.class);
+	  }
 
 	  } catch (Exception e) {
 
