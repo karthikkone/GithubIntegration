@@ -32,7 +32,7 @@ public class NetClientGet {
 		}
 
 		JSONObject json = new JSONObject();
-		json.put("output",conn.getInputStream());
+		json.put("output",conn.getInputStream().toString());
 
 		conn.disconnect();
 		return json;
