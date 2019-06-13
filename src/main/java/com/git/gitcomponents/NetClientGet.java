@@ -49,7 +49,8 @@ while ((output = br.readLine()) != null) {
               .build();
 	  
 	  Response response = httpClient.newCall(request).execute();
-	  System.out.println("output :"+response.body());
+	  String resp = response.body().string();
+	  System.out.println("output :"+resp);
 
 	  } catch (Exception e) {
 
