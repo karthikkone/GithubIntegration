@@ -7,7 +7,8 @@ import java.net.URL;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RestController;
+@RestController
 public class NetClientGet {
 
 	// http://localhost:8080/RESTfulExample/json/product/get
