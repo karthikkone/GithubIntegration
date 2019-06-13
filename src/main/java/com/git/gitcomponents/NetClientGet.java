@@ -13,7 +13,7 @@ public class NetClientGet {
 
 	// http://localhost:8080/RESTfulExample/json/product/get
 	@RequestMapping(value="/getComponents", method=RequestMethod.GET)
-	public void getComponents(String[] args) {
+	public void getComponents() {
 
 	  try {
 
