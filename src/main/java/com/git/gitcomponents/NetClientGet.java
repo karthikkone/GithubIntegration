@@ -50,7 +50,7 @@ while ((output = br.readLine()) != null) {
 
 	  Request request = new Request.Builder()
       		.header("Accept", "application/json")
-              .url("https://api.github.com/repos/karthikkone/DemoRepo/git/trees/686b02625baf89bd828480d0a3bcbb25fb2596d9")
+              .url("https://api.github.com/repos/karthikkone/DemoRepo/contents")
               .get()
               .build();
 	  
