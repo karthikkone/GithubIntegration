@@ -66,7 +66,7 @@ public void getComponents(String accountname,String reponame) {
 		try {	
 			  System.out.println(accountname+" "+reponame+" "+sha);
 			  OkHttpClient httpClient = new OkHttpClient();
-			  String url = "https://api.github.com/repos/"+accountname+"/"+reponame+"/"+"/git/trees/"+sha;
+			  String url = "https://api.github.com/repos/"+accountname+"/"+reponame+"/git/trees/"+sha;
 			  Request request = new Request.Builder()
 		      		.header("Accept", "application/json")
 		              .url(url)
