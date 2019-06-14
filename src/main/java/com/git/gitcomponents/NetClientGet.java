@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.git.model.RepoData;
 import com.git.model.SourceData;
+import com.git.model.SourceType;
 import com.git.db.DataRepository;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.Gson;
@@ -81,7 +82,7 @@ public void getComponents(String accountname,String reponame) {
 			  System.out.println("output :"+resp);
 			  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		      
-		      SourceData[] sourceData = gson.fromJson(resp, SourceData[].class);
+		      SourceType[] sourceData = gson.fromJson(resp, SourceType[].class);
 		      //JSONObject json = new JSONObject();
 		      for(int i=0; i< sourceData.length ;i++)
 		      {
