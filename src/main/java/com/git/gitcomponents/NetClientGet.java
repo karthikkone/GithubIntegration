@@ -36,7 +36,7 @@ public void getComponents(String accountname,String reponame) {
 	  if(response.code() == 200)
 	  {
 	  String resp = response.body().string();
-	  System.out.println("output :"+resp);
+	  //System.out.println("output :"+resp);
 	  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
       
       RepoData[] repoData = gson.fromJson(resp, RepoData[].class);
@@ -46,6 +46,8 @@ public void getComponents(String accountname,String reponame) {
       System.out.println("gson repoData :"+repoData[i]);
       if(repoData[i].getPath() == "src")
       {
+    	  System.out.println("repoData[i].getPath() :"+repoData[i].getPath() );
+    	  System.out.println("repoData[i].getSha() :"+repoData[i].getSha() );
     	  //call another method sendinf src sha ..
     	  getMetadataType(accountname,reponame,repoData[i].getSha());
       }
