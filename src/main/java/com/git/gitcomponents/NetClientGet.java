@@ -43,7 +43,7 @@ public void getComponents(String accountname,String reponame) {
       //JSONObject json = new JSONObject();
       for(int i=0; i< repoData.length ;i++)
       {
-      System.out.println("gson repoData :"+repoData[i]);
+      System.out.println("gson repoData :"+repoData[i].getPath());
       if(repoData[i].getPath() == "src")
       {
     	  System.out.println("repoData[i].getPath() :"+repoData[i].getPath() );
