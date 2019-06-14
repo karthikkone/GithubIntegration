@@ -64,7 +64,7 @@ public void getComponents(String accountname,String reponame) {
 	public void getMetadataType(String accountname,String reponame,String sha)
 	{
 		try {	
-			  
+			  System.out.println(accountname+" "+reponame+" "+sha);
 			  OkHttpClient httpClient = new OkHttpClient();
 			  String url = "https://api.github.com/repos/"+accountname+"/"+reponame+"/"+"/git/trees/"+sha;
 			  Request request = new Request.Builder()
