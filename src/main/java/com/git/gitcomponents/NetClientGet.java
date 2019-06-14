@@ -44,7 +44,7 @@ public void getComponents(String accountname,String reponame) {
       for(int i=0; i< repoData.length ;i++)
       {
       System.out.println("gson repoData :"+repoData[i].getPath());
-      if(repoData[i].getPath() == "src")
+      if(repoData[i].getPath().contains("src"))
       {
     	  System.out.println("repoData[i].getPath() :"+repoData[i].getPath() );
     	  System.out.println("repoData[i].getSha() :"+repoData[i].getSha() );
