@@ -2,14 +2,22 @@ package com.git.model;
 
 import javax.persistence.Entity;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 @Entity
 public class RepoData {
-	
+	@Expose @SerializedName("name")
 	private String name;
+	@Expose @SerializedName("path")
 	private String path;
+	@Expose @SerializedName("sha")
 	private String sha;
+	@Expose @SerializedName("url")
 	private String url;
+	@Expose @SerializedName("git_url")
 	private String git_url;
+	@Expose @SerializedName("download_url")
 	private String downloadUrl;
 	
 	public RepoData()
