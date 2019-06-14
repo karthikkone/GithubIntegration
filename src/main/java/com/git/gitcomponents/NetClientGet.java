@@ -82,8 +82,8 @@ public void getComponents(String accountname,String reponame) {
 			  System.out.println("output :"+resp);
 			  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		      
-		      SourceData sourceData = gson.fromJson(resp, SourceData.class);
-		      System.out.println("gson sourceData :"+sourceData.getSourceType());
+		      SourceData[] sourceData = gson.fromJson(resp, SourceData[].class);
+		      System.out.println("gson sourceData :"+sourceData[0].getSourceType());
 		      //JSONObject json = new JSONObject();
 		      /*for(int i=0; i< sourceData.length ;i++)
 		      {
