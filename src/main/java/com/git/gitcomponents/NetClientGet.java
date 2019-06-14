@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.git.model.RepoData;
+import com.git.model.SourceData;
 import com.git.db.DataRepository;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.Gson;
@@ -78,18 +79,18 @@ public void getComponents(String accountname,String reponame) {
 			  {
 			  String resp = response.body().string();
 			  System.out.println("output :"+resp);
-			  /*Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+			  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		      
-		      RepoData[] repoData = gson.fromJson(resp, RepoData[].class);
+		      SourceData[] sourceData = gson.fromJson(resp, SourceData[].class);
 		      //JSONObject json = new JSONObject();
-		      for(int i=0; i< repoData.length ;i++)
+		      for(int i=0; i< sourceData.length ;i++)
 		      {
-		      System.out.println("gson repoData :"+repoData[i]);
-		      if(repoData[i].getPath() == "src")
+		      System.out.println("gson repoData :"+sourceData[i]);
+		      /*if(sourceData[i].getPath() == "src")
 		      {
 		    	  //call another method sendinf src sha ..
-		      }
 		      }*/
+		      }
 			  }
 
 			  } catch (Exception e) {
