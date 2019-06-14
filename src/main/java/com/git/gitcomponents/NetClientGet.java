@@ -62,6 +62,7 @@ while ((output = br.readLine()) != null) {
 	  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
       
       RepoData repoData = gson.fromJson(resp, RepoData.class);
+      System.out.println("repoData :"+repoData);
 	  }
 
 	  } catch (Exception e) {
