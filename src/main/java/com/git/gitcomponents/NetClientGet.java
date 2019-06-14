@@ -82,16 +82,17 @@ public void getComponents(String accountname,String reponame) {
 			  System.out.println("output :"+resp);
 			  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		      
-		      SourceType[] sourceData = gson.fromJson(resp, SourceType[].class);
+		      SourceData sourceData = gson.fromJson(resp, SourceData.class);
+		      System.out.println("gson sourceData :"+sourceData.getSourceType());
 		      //JSONObject json = new JSONObject();
-		      for(int i=0; i< sourceData.length ;i++)
+		      /*for(int i=0; i< sourceData.length ;i++)
 		      {
 		      System.out.println("gson repoData :"+sourceData[i]);
-		      /*if(sourceData[i].getPath() == "src")
+		      if(sourceData[i].getPath() == "src")
 		      {
 		    	  //call another method sendinf src sha ..
 		      }*/
-		      }
+		      //}
 			  }
 
 			  } catch (Exception e) {
