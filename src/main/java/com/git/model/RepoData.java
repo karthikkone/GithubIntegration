@@ -1,5 +1,7 @@
 package com.git.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 
 @Entity
@@ -8,13 +10,110 @@ public class RepoData {
 	private String name;
 	private String path;
 	private String sha;
+	private String size;
 	private String url;
+	private String html_url;
 	private String git_url;
 	private String downloadUrl;
-	
+	private String type;
+	private class links
+	{
+		private String self;
+		private String git;
+		private String html;
+		public String getSelf() {
+			return self;
+		}
+		public void setSelf(String self) {
+			this.self = self;
+		}
+		public String getGit() {
+			return git;
+		}
+		public void setGit(String git) {
+			this.git = git;
+		}
+		public String getHtml() {
+			return html;
+		}
+		public void setHtml(String html) {
+			this.html = html;
+		}
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getOuterType().hashCode();
+			result = prime * result + ((git == null) ? 0 : git.hashCode());
+			result = prime * result + ((html == null) ? 0 : html.hashCode());
+			result = prime * result + ((self == null) ? 0 : self.hashCode());
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			links other = (links) obj;
+			if (!getOuterType().equals(other.getOuterType()))
+				return false;
+			if (git == null) {
+				if (other.git != null)
+					return false;
+			} else if (!git.equals(other.git))
+				return false;
+			if (html == null) {
+				if (other.html != null)
+					return false;
+			} else if (!html.equals(other.html))
+				return false;
+			if (self == null) {
+				if (other.self != null)
+					return false;
+			} else if (!self.equals(other.self))
+				return false;
+			return true;
+		}
+		private RepoData getOuterType() {
+			return RepoData.this;
+		}
+		@Override
+		public String toString() {
+			return "links [self=" + self + ", git=" + git + ", html=" + html + "]";
+		}
+		
+		
+	};
 	public RepoData()
 	{
 		
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public String getHtml_url() {
+		return html_url;
+	}
+
+	public void setHtml_url(String html_url) {
+		this.html_url = html_url;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getName() {
