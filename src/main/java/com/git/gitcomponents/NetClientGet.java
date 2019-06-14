@@ -62,9 +62,12 @@ while ((output = br.readLine()) != null) {
 	  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
       
       RepoData[] repoData = gson.fromJson(resp, RepoData[].class);
-      System.out.println("gson repoData :"+repoData[1].toString());
-      dataRepository.saveAndFlush(repoData[0]);
-      System.out.println("repoData :"+dataRepository.findAll());
+      for(int i=0; i<= repoData.length ;i++)
+      {
+      System.out.println("gson repoData :"+repoData[i]);
+      //dataRepository.saveAndFlush(repoData);
+      //System.out.println("repoData :"+dataRepository.findAll());
+      }
 	  }
 
 	  } catch (Exception e) {
