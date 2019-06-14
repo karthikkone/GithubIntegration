@@ -1,5 +1,8 @@
 package com.git.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class RepoData {
 	
 	private String name;
