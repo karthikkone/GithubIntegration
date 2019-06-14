@@ -62,7 +62,7 @@ while ((output = br.readLine()) != null) {
 	  Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
       
       RepoData[] repoData = gson.fromJson(resp, RepoData[].class);
-      for(int i=0; i<= repoData.length ;i++)
+      for(int i=0; i< repoData.length ;i++)
       {
       System.out.println("gson repoData :"+repoData[i]);
       //dataRepository.saveAndFlush(repoData);
